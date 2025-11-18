@@ -1,8 +1,10 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 const Layout = () => {
   const location = useLocation()
+  const [logoError, setLogoError] = useState(false)
 
   const isActive = (path: string) => location.pathname === path
 
@@ -14,9 +16,18 @@ const Layout = () => {
           <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-                  Steps NMS
-                </h1>
+                {!logoError ? (
+                  <img
+                    src="/src/assets/Steps_logo.jpeg"
+                    alt="Steps Nursery"
+                    className="h-10 w-auto"
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
+                    Steps NMS
+                  </h1>
+                )}
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
                 <Link
