@@ -29,46 +29,36 @@ const Layout = () => {
                   </h1>
                 )}
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
-                <Link
-                  to="/"
-                  className={`${
-                    isActive('/')
-                      ? 'border-primary-500 text-gray-900 dark:text-white'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                  } inline-flex items-center px-3 pt-1 border-b-2 text-sm font-medium transition-colors`}
-                >
+              <div className="hidden md:ml-6 md:flex md:space-x-2 lg:space-x-3 overflow-x-auto">
+                <Link to="/" className={`${isActive('/') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
                   Dashboard
                 </Link>
-                <Link
-                  to="/students"
-                  className={`${
-                    isActive('/students')
-                      ? 'border-primary-500 text-gray-900 dark:text-white'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                  } inline-flex items-center px-3 pt-1 border-b-2 text-sm font-medium transition-colors`}
-                >
+                <Link to="/students" className={`${isActive('/students') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
                   Students
                 </Link>
-                <Link
-                  to="/teachers"
-                  className={`${
-                    isActive('/teachers')
-                      ? 'border-primary-500 text-gray-900 dark:text-white'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                  } inline-flex items-center px-3 pt-1 border-b-2 text-sm font-medium transition-colors`}
-                >
+                <Link to="/admissions" className={`${isActive('/admissions') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  Admissions
+                </Link>
+                <Link to="/teachers" className={`${isActive('/teachers') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
                   Teachers
                 </Link>
-                <Link
-                  to="/attendance"
-                  className={`${
-                    isActive('/attendance')
-                      ? 'border-primary-500 text-gray-900 dark:text-white'
-                      : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'
-                  } inline-flex items-center px-3 pt-1 border-b-2 text-sm font-medium transition-colors`}
-                >
+                <Link to="/attendance" className={`${isActive('/attendance') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
                   Attendance
+                </Link>
+                <Link to="/evaluations" className={`${isActive('/evaluations') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  Evaluations
+                </Link>
+                <Link to="/events" className={`${isActive('/events') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  Events
+                </Link>
+                <Link to="/hr" className={`${isActive('/hr') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  HR
+                </Link>
+                <Link to="/finance" className={`${isActive('/finance') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  Finance
+                </Link>
+                <Link to="/inventory" className={`${isActive('/inventory') ? 'border-primary-500 text-gray-900 dark:text-white' : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600'} inline-flex items-center px-2 lg:px-3 pt-1 border-b-2 text-xs lg:text-sm font-medium transition-colors whitespace-nowrap`}>
+                  Inventory
                 </Link>
               </div>
             </div>
