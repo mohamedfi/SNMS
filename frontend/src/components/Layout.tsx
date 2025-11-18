@@ -18,9 +18,9 @@ const Layout = () => {
               <div className="flex-shrink-0 flex items-center">
                 {!logoError ? (
                   <img
-                    src="/src/assets/Steps_logo.jpeg"
+                    src="/Steps_logo.jpeg"
                     alt="Steps Nursery"
-                    className="h-10 w-auto"
+                    className="h-12 w-auto mr-3"
                     onError={() => setLogoError(true)}
                   />
                 ) : (
