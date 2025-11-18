@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('age_group', 50)->nullable();
             $table->unsignedInteger('capacity');
+            $table->unsignedInteger('current_enrollment')->default(0);
             $table->foreignId('teacher_id')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('assistant_teacher_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('room_number', 50)->nullable();
