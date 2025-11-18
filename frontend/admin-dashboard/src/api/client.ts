@@ -10,6 +10,7 @@ const apiClient: AxiosInstance = axios.create({
     'Accept': 'application/json',
   },
   timeout: 30000,
+  withCredentials: true, // Required for CORS with credentials
 });
 
 // Request interceptor - add auth token
