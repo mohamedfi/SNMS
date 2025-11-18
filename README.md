@@ -4,10 +4,19 @@ An all-in-one digital platform designed to manage all academic, administrative, 
 
 ## Tech Stack
 
-- **Backend**: Laravel 11 REST API
-- **Authentication**: Laravel Sanctum
-- **Database**: MySQL 8
-- **Storage**: Cloud Object Storage (S3 or DigitalOcean Spaces)
+### Backend
+- **Laravel 11** - REST API
+- **Laravel Sanctum** - Authentication
+- **MySQL 8** - Database
+- **PHP 8.2+** - Server-side language
+
+### Frontend
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Styling
+- **Axios** - HTTP client
 
 ## Project Structure
 
@@ -21,6 +30,14 @@ SNMS/
 │   ├── public/
 │   ├── routes/
 │   └── ...
+├── frontend/         # React frontend application
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── ...
+│   ├── package.json
+│   └── vite.config.ts
 └── prd.md           # Product Requirements Document
 ```
 
@@ -31,9 +48,9 @@ SNMS/
 - PHP 8.2 or higher
 - Composer
 - MySQL 8
-- Node.js & npm (for frontend assets)
+- Node.js 18+ & npm
 
-### Installation
+### Backend Setup
 
 1. Navigate to the backend directory:
    ```bash
@@ -67,7 +84,49 @@ SNMS/
    php artisan serve --host=127.0.0.1 --port=8000
    ```
 
-The application will be available at `http://localhost:8000`
+The backend API will be available at `http://localhost:8000`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Copy environment file:
+   ```bash
+   cp src/.env.example .env
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The frontend application will be available at `http://localhost:3000`
+
+### Running Both
+
+To run the full application, you need to start both servers:
+
+**Terminal 1 (Backend):**
+```bash
+cd backend
+php artisan serve --host=127.0.0.1 --port=8000
+```
+
+**Terminal 2 (Frontend):**
+```bash
+cd frontend
+npm run dev
+```
+
+Then access the application at `http://localhost:3000`
 
 ## Features
 
