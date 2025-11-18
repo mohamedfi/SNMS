@@ -9,6 +9,21 @@ An all-in-one digital platform designed to manage all academic, administrative, 
 - **Database**: MySQL 8
 - **Storage**: Cloud Object Storage (S3 or DigitalOcean Spaces)
 
+## Project Structure
+
+```
+SNMS/
+├── backend/          # Laravel backend API
+│   ├── app/
+│   ├── bootstrap/
+│   ├── config/
+│   ├── database/
+│   ├── public/
+│   ├── routes/
+│   └── ...
+└── prd.md           # Product Requirements Document
+```
+
 ## Setup Instructions
 
 ### Prerequisites
@@ -20,31 +35,36 @@ An all-in-one digital platform designed to manage all academic, administrative, 
 
 ### Installation
 
-1. Install dependencies:
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Install dependencies:
    ```bash
    composer install
    ```
 
-2. Copy environment file:
+3. Copy environment file (if not already present):
    ```bash
    cp .env.example .env
    ```
 
-3. Generate application key:
+4. Generate application key:
    ```bash
    php artisan key:generate
    ```
 
-4. Configure your database in `.env` file
+5. Configure your database in `.env` file
 
-5. Run migrations:
+6. Run migrations:
    ```bash
    php artisan migrate
    ```
 
-6. Start the development server:
+7. Start the development server:
    ```bash
-   php artisan serve
+   php artisan serve --host=127.0.0.1 --port=8000
    ```
 
 The application will be available at `http://localhost:8000`
