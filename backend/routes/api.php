@@ -6,6 +6,11 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AuthController;
 
+// Handle OPTIONS requests for CORS preflight
+Route::options('{any}', function () {
+    return response('', 200);
+})->where('any', '.*');
+
 // Public API routes
 Route::get('/', function () {
     return response()->json(['Laravel' => app()->version()]);
