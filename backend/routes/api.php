@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 // Public API routes
 Route::get('/', function () {
@@ -20,6 +22,12 @@ Route::get('/health', function () {
         'timestamp' => now()->toIso8601String()
     ]);
 });
+
+// Students API routes
+Route::apiResource('students', StudentController::class);
+
+// Teachers API routes
+Route::apiResource('teachers', TeacherController::class);
 
 // Protected API routes
 Route::get('/user', function (Request $request) {
