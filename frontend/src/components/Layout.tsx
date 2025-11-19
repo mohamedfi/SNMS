@@ -1,12 +1,20 @@
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
+import { useAuth } from '../contexts/AuthContext'
 
 const Layout = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user, logout } = useAuth()
   const [logoError, setLogoError] = useState(false)
 
   const isActive = (path: string) => location.pathname === path
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
@@ -63,8 +71,20 @@ const Layout = () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
+              {/* User Info */}
+              <div className="hidden lg:flex items-center space-x-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg">
+                <div className="text-right">
+                  <p className="text-xs font-medium text-gray-900 dark:text-white">{user?.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{user?.role}</p>
+                </div>
+              </div>
+
               <ThemeToggle />
-              <button className="bg-primary-600 dark:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors shadow-sm">
+
+              <button
+                onClick={handleLogout}
+                className="bg-primary-600 dark:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 dark:hover:bg-primary-600 transition-colors shadow-sm"
+              >
                 Logout
               </button>
             </div>

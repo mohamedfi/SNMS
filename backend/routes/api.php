@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AuthController;
 
 // Public API routes
 Route::get('/', function () {
@@ -23,13 +24,19 @@ Route::get('/health', function () {
     ]);
 });
 
-// Students API routes
-Route::apiResource('students', StudentController::class);
-
-// Teachers API routes
-Route::apiResource('teachers', TeacherController::class);
+// Authentication routes
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
 // Protected API routes
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::middleware('auth:sanctum')->group(function () {
+    // Auth routes
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/me', [AuthController::class, 'me']);
+
+    // Students API routes (Admin and Teachers can manage)
+    Route::apiResource('students', StudentController::class);
+
+    // Teachers API routes (Admin can manage)
+    Route::apiResource('teachers', TeacherController::class);
+});
