@@ -8,10 +8,7 @@ use App\Http\Controllers\AuthController;
 
 // Public API routes
 Route::get('/', function () {
-    return response()->json(['Laravel' => app()->version()])
-        ->header('Access-Control-Allow-Origin', 'http://localhost:3000')
-        ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-        ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    return response()->json(['Laravel' => app()->version()]);
 });
 
 // Health check endpoint
